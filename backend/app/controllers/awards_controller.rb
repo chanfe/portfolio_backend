@@ -1,34 +1,34 @@
 class AwardsController < ApplicationController
   def index
-    @awardss = Award.all
-    render json: @awardss
-  end
-
-  def show
-    @awards = Award.find(params[:id])
+    @awards = Award.all
     render json: @awards
   end
 
+  def show
+    @award = Award.find(params[:id])
+    render json: @award
+  end
+
   def create
-    @awards = Award.create(strong_params)
-    render json: @awards, status: 201
+    @award = Award.create(strong_params)
+    render json: @award, status: 201
   end
 
   def update
-    @awards = Award.find(params[:id])
-    unless @awards.nil?
-      @awards.update(strong_params)
-      render json: @awards
+    @award = Award.find(params[:id])
+    unless @award.nil?
+      @award.update(strong_params)
+      render json: @award
     else
       render json: { error: "Award not Found!" }, status: 404
     end
   end
 
   def destroy
-    @awards = Award.find(params[:id])
-    unless @awards.nil?
-      @awards.destroy
-      render json: @awards
+    @award = Award.find(params[:id])
+    unless @award.nil?
+      @award.destroy
+      render json: @award
     else
       render json: { error: "Award not Found!" }, status: 404
     end
@@ -36,6 +36,6 @@ class AwardsController < ApplicationController
 
   private
   def strong_params
-    params.require(:awards).permit(:id, :name, :demo, :image, :github)
+    params.require(:award).permit(:id, :name, :demo, :image, :github)
   end
 end
