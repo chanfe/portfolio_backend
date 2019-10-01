@@ -1,4 +1,5 @@
 class AwardsController < ApplicationController
+  
   def index
     @awards = Award.all
     render json: @awards
