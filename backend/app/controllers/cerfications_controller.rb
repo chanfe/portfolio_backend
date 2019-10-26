@@ -14,7 +14,7 @@ class CerficationsController < ApplicationController
         render json: @cerfication, status: 201
       end
     
-      def update
+      def updatec
         @cerfication = Cerfication.find(params[:id])
         unless @cerfication.nil?
           @cerfication.update(strong_params)
