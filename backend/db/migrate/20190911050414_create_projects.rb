@@ -5,6 +5,7 @@ class CreateProjects < ActiveRecord::Migration[5.2]
       t.string :demo
       t.string :image
       t.string :github
+      t.string :discription
 
       t.timestamps
     end
