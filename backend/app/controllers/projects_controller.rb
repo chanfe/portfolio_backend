@@ -36,7 +36,7 @@ class ProjectsController < ApplicationController
 
   private
   def strong_params
-    params.require(:project).permit(:id, :name, :demo, :image, :github)
+    params.require(:project).permit(:id, :name, :demo, :image, :github, :discription, :created)
   end
 
 end
